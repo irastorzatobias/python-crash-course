@@ -21,6 +21,23 @@ for line in lines:
 
 print('\nUsing strip')
 print(pi_string)
+
+# First option
+file = 'pi_million_digits.txt'
+with open(file) as reader:
+    result = ''
+    for line in reader:
+        result += line.strip() # removing both sides withespaces
+# Second option
+
+with open(file, 'r') as reader:
+    lines = reader.readlines()
+    final = ''
+    for line in lines:
+        final += line.strip()
+
+print(final[0:52])
+print(result[0:52])
         
 
 
