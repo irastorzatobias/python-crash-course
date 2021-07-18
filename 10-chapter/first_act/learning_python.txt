@@ -1,0 +1,5 @@
+In Python you can read JSON Files or any text file that you like.
+In Python you can work OOP.
+In Python isn't necessary to declare a type on variables.
+In Python you don't have to use brackets or semicolons to separate sentences, instead you use :.
+In Python you can use a ton of libraries that are available for doing several things, like datetime, random, math, etc...
