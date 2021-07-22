@@ -1,3 +1,5 @@
+import json
+
 file = 'animal.txt'
 
 
@@ -12,4 +14,4 @@ try:
             print('No se encontro esa palabra')
 except:
     print(f'{file} no está en el directorio')
-    
+
