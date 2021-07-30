@@ -57,6 +57,12 @@ class AlienInvasion:
             elif event.key == pygame.K_LEFT:
                 self.ship.moving_left = False
     
+    def _update_bullets(self):
+        for bullet in self.bullets:
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+                
+    
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color) # changes color
         self.ship.blitme() # display ship
@@ -64,6 +70,7 @@ class AlienInvasion:
             bullet.draw_bullet()
         pygame.display.flip() # refreshes screen 
 
+    
     def run_game(self):
         """ Start the main loop for the game"""
         while True:
@@ -72,10 +79,7 @@ class AlienInvasion:
             self.ship.update()
             # Redraw the screen during each pass through the loop to, refresca color cada loop
             self.bullets.update()
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-            print(len(self.bullets))
+            self._update_bullets()
             self._update_screen()
                     
 
