@@ -1,7 +1,6 @@
 import pygame
-
-from sideways_shooter import SidewayShooter
 from settings import Settings
+
 class Ship:
     def __init__(self,ss_game):
         self.screen = ss_game.screen
@@ -10,12 +9,12 @@ class Ship:
         self.settings = Settings()
         
         # Loading ship image         
-        self.image = pygame.image.load('./images/ship.bmp')
+        self.image = pygame.image.load('./images/rocket_small.png')
         self.rect = self.image.get_rect()
 
         # Start the ship at the left side of the screen 
 
-        self.rect.midright = self.screen_rect.midleft
+        self.rect.midleft = self.screen_rect.midleft
         
         self.y = float(self.rect.y)
         
@@ -23,16 +22,14 @@ class Ship:
         self.moving_up = False
         self.moving_down = False
         
-        def update(self):
-            """ Update ship position based on movement flags"""
-            if self.moving_up and self.rect.top > 0:
-                self.y -= self.settings.ship_speed
-            if self.moving_down and self.rect.bottom < self.screen.rect.bottom:
-                self.y += self.settings.ship_speed
-            # Update values
-            self.rect.y = self.y
+    def update(self):          
+        if self.moving_up and self.rect.top > 0:
+            self.y -= self.settings.ship_speed
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
+            self.y += self.settings.ship_speed
+        # Update values
+        self.rect.y = self.y
         
-        def blitme(self):
-            """ Draw the ship at the current location"""
-            pygame.blit(self.image, self.rect)
-        
+    def blitme(self):
+        """ Draw the ship at the current location"""
+        self.screen.blit(self.image, self.rect)
